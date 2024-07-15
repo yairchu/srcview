@@ -5,11 +5,22 @@ import os
 def open(obj):
     "Open the source code of given object in your editor"
 
+    if inspect.isbuiltin(obj):
+        print(f"{obj} is builtin, cannot open its source!")
+        return
+
+    # Get original function before decorators
+    obj = inspect.unwrap(obj)
+
     try:
         code = inspect.getsourcefile(obj)
         line_no = inspect.getsourcelines(obj)[1]
     except TypeError:
-        open(type(obj))
+        t = type(obj)
+        print(t)
+        if t is obj:
+            raise
+        open(t)
         return
 
     editor = os.environ.get("EDITOR", "code")

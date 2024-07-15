@@ -2,7 +2,10 @@ import inspect
 import os
 
 
+# TODO: Test if it works for more just functions!
 def open(func):
+    "Open the source code of given function in your editor"
+
     code = inspect.getsourcefile(func)
     line_no = inspect.getsourcelines(func)[1]
 

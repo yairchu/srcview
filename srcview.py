@@ -2,12 +2,15 @@ import inspect
 import os
 
 
-# TODO: Test if it works for more just functions!
-def open(func):
-    "Open the source code of given function in your editor"
+def open(obj):
+    "Open the source code of given object in your editor"
 
-    code = inspect.getsourcefile(func)
-    line_no = inspect.getsourcelines(func)[1]
+    try:
+        code = inspect.getsourcefile(obj)
+        line_no = inspect.getsourcelines(obj)[1]
+    except TypeError:
+        open(type(obj))
+        return
 
     editor = os.environ.get("EDITOR", "code")
 

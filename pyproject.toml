@@ -5,10 +5,10 @@ description = "Open a function or module's source code in your editor"
 authors = ["Yair Chuchem <yairchu@gmail.com>"]
 license = "BSD"
 readme = "README.md"
+include = ["srcview.py"]
 
 [tool.poetry.dependencies]
 python = ">=3.6"
-
 
 [build-system]
 requires = ["poetry-core"]

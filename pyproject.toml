@@ -6,6 +6,7 @@ authors = ["Yair Chuchem <yairchu@gmail.com>"]
 license = "BSD"
 readme = "README.md"
 include = ["srcview.py"]
+repository = "https://github.com/yairchu/srcview"
 
 [tool.poetry.dependencies]
 python = ">=3.6"
